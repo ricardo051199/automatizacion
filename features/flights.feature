@@ -2,7 +2,7 @@ Feature: As a internet user
          I want to use the google search engine
          so I test that works correctly
 
-Scenario: Search a flight in Mercury Tours page        
+Scenario: Search a flight with no seats avaialble in Mercury Tours page        
   Given I am browsing the "https://demo.guru99.com/test/newtours/index.php" page.
   When I will click the "Flights" link 
   And I enter the required fields as show below
