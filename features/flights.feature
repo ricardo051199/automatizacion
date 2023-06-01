@@ -6,7 +6,7 @@ Background:
   Given I am on the Mercury Tours homepage
   When I will click the "Flights" link 
 
-Scenario: Search for a flight with available seats in Mercury Tours page.      
+Scenario: Search for a flight with available seats, with the origin and destination different from each other in Mercury Tours page.    
   Given I enter the required fields as show below
     |Type:                   | Round Trip         |
     |Passengers:             | 2                  |
@@ -32,7 +32,7 @@ Scenario: Search a flight with no seats avaialble in Mercury Tours page.
   When send my flight search form
   Then I see text above after flight search engine "After flight finder - No Seats Avaialble  "
 
-Scenario: Search for a flight with the same origin and destination in Mercury Tours page.       
+Scenario: Search for a flight with available seats, with the same origin and destination.      
   Given I enter the required fields as show below
     |Type:                   | One Way            |
     |Passengers:             | 1                  |
