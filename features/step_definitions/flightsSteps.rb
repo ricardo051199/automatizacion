@@ -4,15 +4,16 @@ Given(/^I am on the Mercury Tours homepage$/) do
   visit('http://demo.guru99.com/test/newtours/')
 end
 
-#Then I will click the "Flights" link
-Then(/^I will click the "([^"]*)" link$/) do |flightsLink|
+#Given I will click the "Flights" link
+Given(/^I will click the "([^"]*)" link$/) do |flightsLink|
   click_link(flightsLink)
 end
 
-When(/^I enter the required fields as show below$/) do |table|
+#Given I enter the required fields as show below
+Given(/^I enter the required fields as show below$/) do |table|
   data = table.rows_hash
   data.each_pair do |key, value|
-    case key
+  case key
   when "Type:"
     case value
     when "Round Trip"
@@ -53,11 +54,17 @@ When(/^I enter the required fields as show below$/) do |table|
   end
 end
 
+#When send my flight search form
 When(/^send my flight search form$/) do
   find("input[name='findFlights']").click
 end
 
-#I see text above after flight search engine "After flight finder - No Seats Avaialble  "
+#When I press the "BACK TO HOME" link
+When(/^I press the "BACK TO HOME" link$/) do
+  all("a[href='index.php']")[2].click
+end
+
+#Then I see text above after flight search engine "After flight finder - No Seats Avaialble  "
 Then('I see text above after flight search engine {string}') do |flightFinder|
   flightFinderLabel = all('font')[4]
   puts "ONLY FOR TEST PURPOSES:"+flightFinderLabel.text
@@ -66,7 +73,12 @@ Then('I see text above after flight search engine {string}') do |flightFinder|
   end
 end
 
-#I see an error message stating that "The source and destination must be different"
+#Then I see an error message stating that "The source and destination must be different"
 Then('I see an error message stating that {string}') do |errorMessage|
-  puts errorMessage
+  expect(page).to have_content(errorMessage)
+end
+
+#Then I see the main page of mercury tours
+Then('I see the main page') do
+  expect(page.evaluate_script('document.title')).to eq('Welcome: Mercury Tours')
 end
