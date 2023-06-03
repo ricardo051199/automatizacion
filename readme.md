@@ -1,7 +1,7 @@
 
 
 ---
-## Ejecutar el programa
+## Ejecutar los escenarios
 
 
 <span style="color:chartreuse">To run the features run:</span>
