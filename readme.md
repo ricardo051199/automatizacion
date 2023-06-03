@@ -1,4 +1,10 @@
+To run the features run:
+...\automatizacion>cucumber features\register.feature
+...\automatizacion>cucumber features\flights.feature
+...\automatizacion>cucumber features\browsing.feature
 
+to run all the features run
+...\automatizacion>Smoke.bat
 
 ## Technologies
 
